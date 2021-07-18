@@ -1,6 +1,9 @@
 package com.mkristie.avajlauncher.aircraft;
 
 import com.mkristie.avajlauncher.Coordinates;
+import com.mkristie.avajlauncher.aircraft.impl.Baloon;
+import com.mkristie.avajlauncher.aircraft.impl.Helicopter;
+import com.mkristie.avajlauncher.aircraft.impl.JetPlain;
 import com.mkristie.avajlauncher.excpetion.IllegalAircraftTypeException;
 import java.util.Locale;
 

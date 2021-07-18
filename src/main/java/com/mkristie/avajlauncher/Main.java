@@ -1,8 +1,8 @@
 package com.mkristie.avajlauncher;
 
-import com.mkristie.avajlauncher.aircraft.Baloon;
+import com.mkristie.avajlauncher.aircraft.impl.Baloon;
 import com.mkristie.avajlauncher.aircraft.Flyable;
-import com.mkristie.avajlauncher.aircraft.JetPlain;
+import com.mkristie.avajlauncher.aircraft.impl.JetPlain;
 
 public class Main {
 

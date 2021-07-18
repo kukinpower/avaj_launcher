@@ -1,9 +1,6 @@
 package com.mkristie.avajlauncher.tower;
 
-import com.mkristie.avajlauncher.aircraft.Baloon;
 import com.mkristie.avajlauncher.aircraft.Flyable;
-import com.mkristie.avajlauncher.aircraft.Helicopter;
-import com.mkristie.avajlauncher.aircraft.JetPlain;
 import com.mkristie.avajlauncher.writer.AircraftWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +18,7 @@ public abstract class Tower {
 
   public void unregister(Flyable flyable) {
     unregisteredSubscribers.add(flyable);
+    aircraftWriter.write("Tower says: " + flyable + " unregistered from weather tower.\n");
   }
 
   protected void conditionsChanged() {
