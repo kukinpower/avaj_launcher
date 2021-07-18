@@ -1,4 +1,4 @@
-package com.mkristie.avajlauncher.flyable;
+package com.mkristie.avajlauncher.aircraft;
 
 import com.mkristie.avajlauncher.tower.WeatherTower;
 
