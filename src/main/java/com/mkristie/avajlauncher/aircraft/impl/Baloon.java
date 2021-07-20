@@ -1,10 +1,9 @@
 package com.mkristie.avajlauncher.aircraft.impl;
 
-import com.mkristie.avajlauncher.Coordinates;
 import com.mkristie.avajlauncher.aircraft.Aircraft;
+import com.mkristie.avajlauncher.aircraft.Coordinates;
 import com.mkristie.avajlauncher.aircraft.Flyable;
-import com.mkristie.avajlauncher.tower.WeatherTower;
-import com.mkristie.avajlauncher.writer.AircraftWriter;
+import com.mkristie.avajlauncher.tower.impl.WeatherTower;
 
 public class Baloon extends Aircraft implements Flyable {
 

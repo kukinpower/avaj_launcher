@@ -1,7 +1,5 @@
 package com.mkristie.avajlauncher.aircraft;
 
-import com.mkristie.avajlauncher.Coordinates;
-
 public abstract class Aircraft {
 
   protected final long id;
