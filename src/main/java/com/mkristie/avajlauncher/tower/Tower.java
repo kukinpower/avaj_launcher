@@ -9,7 +9,7 @@ public abstract class Tower {
 
   private final List<Flyable> registeredSubscribers = new ArrayList<>();
   private final List<Flyable> unregisteredSubscribers = new ArrayList<>();
-  private final static AircraftWriter aircraftWriter = new AircraftWriter();
+  private final static AircraftWriter aircraftWriter = AircraftWriter.getWriter();
 
   public void register(Flyable flyable) {
     registeredSubscribers.add(flyable);

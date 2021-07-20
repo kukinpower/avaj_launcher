@@ -7,9 +7,9 @@ import com.mkristie.avajlauncher.aircraft.impl.JetPlain;
 import com.mkristie.avajlauncher.excpetion.IllegalAircraftTypeException;
 import java.util.Locale;
 
-public class AircraftFactory {
+public abstract class AircraftFactory {
 
-  private static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) {
+  public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) {
     Coordinates coordinates = new Coordinates(longitude, latitude, height);
 
     switch (type.toLowerCase(Locale.ROOT)) {

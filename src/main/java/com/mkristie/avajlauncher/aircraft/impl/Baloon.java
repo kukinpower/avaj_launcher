@@ -22,9 +22,9 @@ public class Baloon extends Aircraft implements Flyable {
   @Override
   public void updateConditions() {
 //    SUN- Longitude increases with 2, Height increases with 4◦RAIN- Height decreases with 5◦FOG- Height decreases with 3◦SNOW- Height decreases with 15
-    if (weatherTower != null) {
-
-    }
+//    if (weatherTower != null) {
+//      switch (weatherTower.)
+//    }
   }
 
   @Override
