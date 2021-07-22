@@ -6,11 +6,11 @@ import com.mkristie.avajlauncher.weather.WeatherProvider;
 
 public final class WeatherTower extends Tower {
 
-  String getWeather(Coordinates coordinates) {
+  public String getWeather(Coordinates coordinates) {
     return WeatherProvider.getProvider().getCurrentWeather(coordinates);
   }
 
-  void changeWeather() {
+  public void changeWeather() {
     conditionsChanged();
   }
 }

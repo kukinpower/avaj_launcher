@@ -2,7 +2,7 @@ package com.mkristie.avajlauncher.parser;
 
 import com.mkristie.avajlauncher.aircraft.AircraftFactory;
 import com.mkristie.avajlauncher.aircraft.Flyable;
-import com.mkristie.avajlauncher.excpetion.BadFileFormatException;
+import com.mkristie.avajlauncher.exception.BadFileFormatException;
 import com.mkristie.avajlauncher.simulation.AircraftSimulation;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +14,11 @@ public class AircraftFileParser {
 
   private int extractEpochsCount(Scanner scanner) {
     try {
-      return Integer.parseInt(scanner.nextLine());
+      int epochs = Integer.parseInt(scanner.nextLine());
+      if (epochs <= 0) {
+        throw new BadFileFormatException("Epochs count must be greater than 0");
+      }
+      return epochs;
     } catch (NumberFormatException e) {
       throw new BadFileFormatException("First line of a file must be a count of epochs. Decimal number");
     }

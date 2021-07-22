@@ -1,8 +1,5 @@
 package com.mkristie.avajlauncher;
 
-import com.mkristie.avajlauncher.aircraft.impl.Baloon;
-import com.mkristie.avajlauncher.aircraft.Flyable;
-import com.mkristie.avajlauncher.aircraft.impl.JetPlain;
 import com.mkristie.avajlauncher.parser.AircraftFileParser;
 import java.io.FileNotFoundException;
 
@@ -13,10 +10,6 @@ public class Main {
       System.err.println("Please provide one and only one argument. In *.txt format");
     }
 
-    new AircraftFileParser().parse(args[0]);
-
-    //read the file with scanner
-    //add custom exceptions
-    //check coords
+    new AircraftFileParser().parse(args[0]).runSimulation();
   }
 }

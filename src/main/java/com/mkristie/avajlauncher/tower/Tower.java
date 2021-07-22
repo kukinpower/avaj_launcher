@@ -18,7 +18,7 @@ public abstract class Tower {
 
   public void unregister(Flyable flyable) {
     unregisteredSubscribers.add(flyable);
-    aircraftWriter.write("Tower says: " + flyable + " unregistered from weather tower.\n");
+    aircraftWriter.write("Tower says: " + flyable + " unregistered from weather tower.");
   }
 
   protected void conditionsChanged() {

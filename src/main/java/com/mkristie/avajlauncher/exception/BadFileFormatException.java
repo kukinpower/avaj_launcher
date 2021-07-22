@@ -1,4 +1,4 @@
-package com.mkristie.avajlauncher.excpetion;
+package com.mkristie.avajlauncher.exception;
 
 public class BadFileFormatException extends IllegalArgumentException {
 

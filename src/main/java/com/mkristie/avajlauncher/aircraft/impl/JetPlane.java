@@ -6,17 +6,12 @@ import com.mkristie.avajlauncher.aircraft.Flyable;
 import com.mkristie.avajlauncher.exception.NoSuchWeatherException;
 import com.mkristie.avajlauncher.tower.impl.WeatherTower;
 
-public class Baloon extends Aircraft implements Flyable {
+public class JetPlane extends Aircraft implements Flyable {
 
   private WeatherTower weatherTower;
 
-  public Baloon(String name, Coordinates coordinates) {
+  public JetPlane(String name, Coordinates coordinates) {
     super(name, coordinates);
-  }
-
-  @Override
-  public String toString() {
-    return "Baloon#" + name + "(" + id + ")";
   }
 
   @Override
@@ -29,20 +24,20 @@ public class Baloon extends Aircraft implements Flyable {
       String weather = weatherTower.getWeather(coordinates);
       switch (weather) {
         case "SUN": {
-          longitude += 2;
-          height = Math.min(height + 4, 100);
+          latitude += 10;
+          height = Math.min(height + 2, 100);
           break;
         }
         case "RAIN": {
-          height = Math.max(height - 5, 0);
+          latitude += 5;
           break;
         }
         case "FOG": {
-          height = Math.max(height - 3, 0);
+          latitude += 1;
           break;
         }
         case "SNOW": {
-          height = Math.max(height - 15, 0);
+          height = Math.max(height - 7, 0);
           break;
         }
         default: {
@@ -63,5 +58,10 @@ public class Baloon extends Aircraft implements Flyable {
   public void registerTower(WeatherTower weatherTower) {
     this.weatherTower = weatherTower;
     this.weatherTower.register(this);
+  }
+
+  @Override
+  public String toString() {
+    return "JetPlane#" + name + "(" + id + ")";
   }
 }

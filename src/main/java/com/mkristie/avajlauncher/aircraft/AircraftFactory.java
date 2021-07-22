@@ -2,8 +2,8 @@ package com.mkristie.avajlauncher.aircraft;
 
 import com.mkristie.avajlauncher.aircraft.impl.Baloon;
 import com.mkristie.avajlauncher.aircraft.impl.Helicopter;
-import com.mkristie.avajlauncher.aircraft.impl.JetPlain;
-import com.mkristie.avajlauncher.excpetion.IllegalAircraftTypeException;
+import com.mkristie.avajlauncher.aircraft.impl.JetPlane;
+import com.mkristie.avajlauncher.exception.IllegalAircraftTypeException;
 import java.util.Locale;
 
 public abstract class AircraftFactory {
@@ -16,8 +16,8 @@ public abstract class AircraftFactory {
       case "baloon": {
         return new Baloon(name, coordinates);
       }
-      case "jetplain": {
-        return new JetPlain(name, coordinates);
+      case "jetplane": {
+        return new JetPlane(name, coordinates);
       }
       case "helicopter": {
         return new Helicopter(name, coordinates);

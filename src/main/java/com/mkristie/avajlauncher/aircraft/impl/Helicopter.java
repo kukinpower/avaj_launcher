@@ -3,6 +3,7 @@ package com.mkristie.avajlauncher.aircraft.impl;
 import com.mkristie.avajlauncher.aircraft.Aircraft;
 import com.mkristie.avajlauncher.aircraft.Coordinates;
 import com.mkristie.avajlauncher.aircraft.Flyable;
+import com.mkristie.avajlauncher.exception.NoSuchWeatherException;
 import com.mkristie.avajlauncher.tower.impl.WeatherTower;
 
 public class Helicopter extends Aircraft implements Flyable {
@@ -15,13 +16,48 @@ public class Helicopter extends Aircraft implements Flyable {
 
   @Override
   public void updateConditions() {
-  //◦SUN- Longitude increases with 10, Height increases with 2◦RAIN- Longitude increases with 5◦FOG- Longitude increases with 1◦SNOW- Height decreases with 12
+    if (weatherTower != null) {
+      int longitude = coordinates.getLongitude();
+      int latitude = coordinates.getLatitude();
+      int height = coordinates.getHeight();
+
+      String weather = weatherTower.getWeather(coordinates);
+      switch (weather) {
+        case "SUN": {
+          longitude += 10;
+          height = Math.min(height + 2, 100);
+          break;
+        }
+        case "RAIN": {
+          longitude += 5;
+          break;
+        }
+        case "FOG": {
+          longitude += 1;
+          break;
+        }
+        case "SNOW": {
+          height = Math.max(height - 12, 0);
+          break;
+        }
+        default: {
+          throw new NoSuchWeatherException("There is no such weather: " + weather);
+        }
+      }
+      coordinates = new Coordinates(longitude, latitude, height);
+      writeWeatherMessage(weather);
+
+      if (height == 0) {
+        aircraftWriter.write(this + " landed");
+        weatherTower.unregister(this);
+      }
+    }
   }
 
   @Override
   public void registerTower(WeatherTower weatherTower) {
     this.weatherTower = weatherTower;
-    weatherTower.register(this);
+    this.weatherTower.register(this);
   }
 
   @Override

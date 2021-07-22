@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 public final class AircraftWriter {
 
@@ -13,6 +14,11 @@ public final class AircraftWriter {
 
   private AircraftWriter(String filename) {
     this.filename = filename;
+    try {
+      Files.createFile(Paths.get(filename));
+    } catch (IOException e) {
+
+    }
   }
 
   /**
@@ -44,8 +50,9 @@ public final class AircraftWriter {
   }
 
   public void write(String message) {
+    message += "\n";
     try {
-      Files.write(Paths.get(filename), message.getBytes(StandardCharsets.UTF_8));
+      Files.write(Paths.get(filename), message.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
     } catch (IOException e) {
       System.err.println("couldn't write to file" + filename);
     }

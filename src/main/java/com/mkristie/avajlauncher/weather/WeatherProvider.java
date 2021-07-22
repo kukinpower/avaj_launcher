@@ -1,6 +1,7 @@
 package com.mkristie.avajlauncher.weather;
 
 import com.mkristie.avajlauncher.aircraft.Coordinates;
+import java.util.Random;
 
 public class WeatherProvider {
 
@@ -24,6 +25,8 @@ public class WeatherProvider {
   }
 
   public String getCurrentWeather(Coordinates coordinates) {
-    return weather[0];//todo calc
+    int i = new Random().nextInt(coordinates.getLongitude() +
+        coordinates.getHeight() + coordinates.getLatitude()) % 4;
+    return weather[i];
   }
 }
