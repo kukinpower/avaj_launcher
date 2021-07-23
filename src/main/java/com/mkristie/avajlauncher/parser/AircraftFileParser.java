@@ -48,7 +48,7 @@ public class AircraftFileParser {
       try {
         String type = aircraft[0];
         if (!TYPES.contains(type.toLowerCase(Locale.ROOT))) {
-          throw new IllegalArgumentException("There's no such type: " + type
+          throw new BadFileFormatException("There's no such type: " + type
               + ". Expected types: baloon, helicopter, jetplain");
         }
         String name = aircraft[1];
@@ -56,7 +56,10 @@ public class AircraftFileParser {
         int latitude = Integer.parseInt(aircraft[3]);
         int height = Integer.parseInt(aircraft[4]);
         if (longitude <= 0 || latitude <= 0 || height <= 0) {
-          throw new IllegalArgumentException("Coordinates must be positive");
+          throw new BadFileFormatException("Coordinates must be positive");
+        }
+        if (height > 100) {
+          throw new BadFileFormatException("height can't be more than 100");
         }
 
         aircrafts.add(AircraftFactory.newAircraft(type, name, longitude, latitude, height));
