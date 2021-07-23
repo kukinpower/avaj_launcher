@@ -49,12 +49,20 @@ public final class AircraftWriter {
     return getWriter(DEFAULT_FILENAME);
   }
 
+  public static String getWriterFilename() {
+    AircraftWriter result = aircraftWriter;
+    if (result != null) {
+      return result.filename;
+    }
+    return DEFAULT_FILENAME;
+  }
+
   public void write(String message) {
     message += "\n";
     try {
       Files.write(Paths.get(filename), message.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
     } catch (IOException e) {
-      System.err.println("couldn't write to file" + filename);
+      System.err.println("couldn't write to file " + filename);
     }
   }
 }

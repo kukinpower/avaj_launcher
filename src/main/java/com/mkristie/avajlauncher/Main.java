@@ -1,6 +1,9 @@
 package com.mkristie.avajlauncher;
 
 import com.mkristie.avajlauncher.parser.AircraftFileParser;
+import com.mkristie.avajlauncher.writer.AircraftWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Main {
 
@@ -11,6 +14,7 @@ public class Main {
     }
 
     try {
+      Files.deleteIfExists(Paths.get(AircraftWriter.getWriterFilename()));
       new AircraftFileParser().parse(args[0]).runSimulation();
     } catch (Exception e) {
       System.err.println(e.getMessage());

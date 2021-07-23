@@ -3,6 +3,9 @@ package com.mkristie.avajlauncher.simulation;
 import com.mkristie.avajlauncher.aircraft.Flyable;
 import com.mkristie.avajlauncher.tower.impl.WeatherTower;
 import com.mkristie.avajlauncher.writer.AircraftWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class AircraftSimulation {
@@ -20,7 +23,7 @@ public class AircraftSimulation {
     }
   }
 
-  public void runSimulation() {
+  public void runSimulation() throws IOException {
 //    AircraftWriter writer = AircraftWriter.getWriter();
     for (int i = 0; i < epochsCount; i++) {
 //      writer.write("------------------------------------------ " + (i + 1) + " ------------------------------------------");
