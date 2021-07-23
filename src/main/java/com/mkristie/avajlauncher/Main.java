@@ -10,6 +10,10 @@ public class Main {
       System.err.println("Please provide one and only one argument. In *.txt format");
     }
 
-    new AircraftFileParser().parse(args[0]).runSimulation();
+    try {
+      new AircraftFileParser().parse(args[0]).runSimulation();
+    } catch (Exception e) {
+      System.err.println(e.getMessage());
+    }
   }
 }
