@@ -16,8 +16,6 @@ import java.util.Scanner;
 
 public class AircraftFileParser {
 
-  private static final List<String> TYPES = Arrays.asList("baloon", "jetplane", "helicopter");
-
   private int extractEpochsCount(Scanner scanner) {
     try {
       int epochs = Integer.parseInt(scanner.nextLine());
@@ -35,6 +33,10 @@ public class AircraftFileParser {
     }
   }
 
+  private boolean isTypeExist(String type) {
+    return AircraftFactory.TYPE_HASH.containsKey(type) || AircraftFactory.TYPE_HASH.containsValue(type);
+  }
+
   private List<Flyable> extractAircrafts(Scanner scanner) {
     List<Flyable> aircrafts = new ArrayList<>();
 
@@ -47,7 +49,7 @@ public class AircraftFileParser {
       }
       try {
         String type = aircraft[0];
-        if (!TYPES.contains(type.toLowerCase(Locale.ROOT))) {
+        if (!isTypeExist(type)) {
           throw new BadFileFormatException("There's no such type: " + type
               + ". Expected types: baloon, helicopter, jetplain");
         }
