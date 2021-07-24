@@ -8,9 +8,7 @@ import com.mkristie.avajlauncher.simulation.AircraftSimulation;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
