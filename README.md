@@ -1,4 +1,4 @@
-# 🚁 Java simulator
+# 🚁 Java aircraft and weather simulator
 To get familiar with classic OOP design-patterns: `Observer`, `Singleton`, `Factory`
 
 ## 🏃🏽‍♀ ️Compile and run
